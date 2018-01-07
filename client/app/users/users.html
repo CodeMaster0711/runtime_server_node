@@ -1,0 +1,25 @@
+<div class="container">
+  <ul class="list-group user-list">
+    <li class="list-group-item list-header">
+      <div class="col-md-12">
+        <span class="col-md-4"><strong>Email</strong></span>
+        <span class="col-md-4"><strong>Name</strong></span>        
+        <div class="col-md-4 list-button">
+          <a ng-click="users.add('add', users.newUser)" class="plus">
+            <span class="fa fa-plus"><strong>Add</strong></span>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" ng-repeat="user in users.users">
+      <div class="col-md-12">
+        <span class="col-md-4">{{user.email}}</span>
+        <span class="col-md-4">{{user.name}}</span>        
+        <span class="col-md-4">
+          <a ng-click="users.update('update', user)" class="edit"><span class="fa fa-pencil-square-o fa-2x"></span></a>
+          <a ng-click="users.delete(user.name, user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>

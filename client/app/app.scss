@@ -1,0 +1,51 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+$fa-font-path: "../bower_components/font-awesome/fonts";
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.user-list, .meal-list {
+	li {
+		display: flex;
+		border: none;
+		border-bottom: 1px lightgray solid;
+		margin-bottom: 0;
+		&:last-child { border-bottom: none; }
+
+		.user-info {
+			flex-grow: 1;
+		}
+		.trash, .edit, .plus {
+      margin-right: 10px;
+			text-decoration: none;
+      cursor: pointer;
+		}
+	}
+}
+
+.trash { color:rgb(209, 91, 71); }
+
+.notifications .notifications-container {
+  z-index: 9999;
+}
+
+// Component styles are injected through grunt
+/* inject:scss */
+@import 'account/settings/settings.scss';
+@import 'main/main.scss';
+@import 'records/records.scss';
+@import 'users/users.scss';
+@import '../components/footer/footer.scss';
+@import '../components/modal/modal.scss';
+@import '../components/navbar/navbar.scss';
+/* endinject */

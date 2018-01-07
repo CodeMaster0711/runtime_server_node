@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+</div>
+<div class="modal-body">
+  <p ng-if="modal.text" ng-bind="modal.text"></p>
+  <div class="row"> 
+    <div class="col-md-12">
+      <div class="col-md-3">User Email</div>
+      <div class="col-md-9"><input type="text" ng-model="modal.email" class="form-control" placeholder="@email"/></div>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-3">User Name</div>
+      <div class="col-md-9"><input type="text" ng-model="modal.name" class="form-control" placeholder="user name"/></div>
+    </div>
+    <div ng-if="modal.type === 'add'" class="col-md-12">
+      <div class="col-md-3">Password</div>
+      <div class="col-md-9"><input type="password" ng-model="modal.password" class="form-control" placeholder="password"/></div>
+    </div>
+    <div ng-if="modal.type === 'add'" class="col-md-12">
+      <div class="col-md-3">Confirm Password</div>
+      <div class="col-md-9"><input type="password" ng-model="modal.confirmPassword" class="form-control" placeholder="retype your password"/></div>
+    </div>
+    <p ng-if="modal.message.length > 0" class="col-md-12 text-center help-block">{{modal.message}}</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+</div>

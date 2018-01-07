@@ -1,0 +1,42 @@
+<div class="container">
+  <!-- filter -->
+  <div class="record-filter row">
+    <div class="col-md-10">
+      <div class="col-sm-6"><span><strong>From</strong></span></div>
+      <div class="col-sm-6"><span><strong>To</strong></span></div>
+      <div class="col-sm-3"><input type="date" ng-model="records.fromDate" class="form-control"/></div>
+      <div class="col-sm-3"><input type="time" ng-model="records.fromDate" class="form-control"/></div>
+      <div class="col-sm-3"><input type="date" ng-model="records.toDate" class="form-control"/></div>
+      <div class="col-sm-3"><input type="time" ng-model="records.toDate" class="form-control"/></div>
+    </div>
+  </div>
+  
+  <!-- list of meals -->
+  <ul class="list-group meal-list">
+    <li class="list-group-item list-header">
+      <div class="col-md-12">
+        <span class="col-md-3"><strong>Meal</strong></span>
+        <span class="col-md-2"><strong>Calories</strong></span>
+        <span class="col-md-3"><strong>Date</strong></span>
+        <span class="col-md-2"><strong>Time</strong></span>
+        <div class="col-md-2 list-button">
+          <a ng-if="!records.isAdmin()" ng-click="records.add('add', records.newRecord)" class="plus">
+            <span class="fa fa-plus"><strong>Add</strong></span>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" ng-repeat="record in records.records" ng-if="records.checkFilter(record)" ng-class="{'over-limit': records.overLimit(record)}">
+      <div class="col-md-12">
+        <span class="col-md-3">{{record.name}}</span>
+        <span class="col-md-2">{{record.calories}}</span>
+        <span class="col-md-3">{{records.getDate(record.date)}}</span>
+        <span class="col-md-2">{{records.getLocalTime(record.date)}}</span>
+        <span class="col-md-2 list-button">
+          <a ng-click="records.update('update', record)" class="edit"><span class="fa fa-pencil-square-o fa-2x"></span></a>
+          <a ng-click="records.delete(record.name, record)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
